@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:80"
+      - "8001:443"
+    environment:
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_HTTPS_PORT=8001
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/localhost.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password
+    volumes: 
+      - ./.cert:/https/
