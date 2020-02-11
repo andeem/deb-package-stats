@@ -13,6 +13,7 @@ jobs:
  deploy:
    machine: true
    steps:
+    # build image
      - run: |         
          docker info
          docker build src/WebUI/ -t aspnetapp -f src/WebUI/DockerfileProd
