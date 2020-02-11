@@ -13,6 +13,9 @@ jobs:
  deploy:
    machine: true
    steps:
+    - run: |         
+         docker info
+         docker build src/WebUI/ -t aspnetapp -f src/WebUI/DockerfileProd
      # deploy the image
      - run: |         
          docker login --username=$HEROKU_USERNAME --password=$HEROKU_API_KEY registry.heroku.com
