@@ -27,11 +27,24 @@ workflows:
  version: 2
  build_and_deploy:
   jobs:
-   - build
+   - build:
+      filters:
+        tags:
+          only: /.*/
    - hold:
       type: approval
+      filters:
+        tags:
+          only: /^V.*/
+        branches:
+          ignore: /.*/
       requires:
         - build
    - deploy:
+      filters:
+        tags:
+          only: /^V.*/
+        branches:
+          ignore: /.*/
       requires:
         - hold
