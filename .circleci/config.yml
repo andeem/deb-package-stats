@@ -20,3 +20,9 @@ jobs:
          docker push registry.heroku.com/$HEROKU_APP_NAME/web                
          curl https://cli-assets.heroku.com/install.sh | sh
          heroku container:release web -a $HEROKU_APP_NAME
+ workflows:
+  version: 2
+  build_and_deploy:
+   jobs:
+    - build
+    - deploy
