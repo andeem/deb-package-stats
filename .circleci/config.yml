@@ -4,7 +4,6 @@ jobs:
    machine: true
    steps:
      - checkout 
-
      # build image
      - run: |         
          docker build -t deb-package-stats:latest . 
@@ -30,7 +29,7 @@ workflows:
  version: 2
  build_and_deploy:
   jobs:
-   - build
+   - build:
       filters:
         tags:
           only: /.*/
