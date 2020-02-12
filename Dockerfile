@@ -28,5 +28,5 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=publish /app/src/WebUI/out ./
-CMD dotnet WebUI.dll
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet WebUI.dll
 # ENTRYPOINT ["dotnet", "WebUI.dll"]
