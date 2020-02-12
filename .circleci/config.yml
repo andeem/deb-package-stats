@@ -19,8 +19,8 @@ jobs:
    machine: true
    steps:
      - attach_workspace:
-        at: /tmp/workspace
-     - run: docker load -i /tmp/workspace/.docker
+        at: /workspace
+     - run: docker load -i /workspace/.docker
     # build image
     # - run: |         
      #    docker info
