@@ -21,7 +21,8 @@ jobs:
      - run: mkdir .docker
      - attach_workspace:
         at: .docker
-     - run: docker load -i .docker/image.tar
+     - run: ls ls .docker
+    # - run: docker load -i .docker/image.tar
     # build image
     # - run: |         
      #    docker info
@@ -41,8 +42,8 @@ workflows:
       #filters:
       #  tags:
       #    only: /.*/
-   - hold:
-      type: approval
+   #- hold:
+   #   type: approval
       #filters:
       #  tags:
       #    only: /^V.*/
@@ -57,4 +58,4 @@ workflows:
       #  branches:
       #    ignore: /.*/
       requires:
-        - hold
+        - build
