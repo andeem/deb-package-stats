@@ -9,6 +9,7 @@ jobs:
      - run: |         
          docker info
          docker build src/WebUI/ -t aspnetapp -f src/WebUI/prod.Dockerfile
+         mkdir workspace
          mkdir workspace/.docker
          docker save -o workspace/.docker/image aspnetapp
      - persist-to-workspace:
