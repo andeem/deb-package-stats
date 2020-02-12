@@ -47,7 +47,7 @@ workflows:
       #    only: /^V.*/
       #  branches:
       #    ignore: /.*/
-        requires:
+      requires:
           - build
    - deploy:
       #filters:
