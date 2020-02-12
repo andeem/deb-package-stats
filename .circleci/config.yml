@@ -21,7 +21,7 @@ jobs:
      - run: mkdir .docker
      - attach_workspace:
         at: .docker
-     - run: docker load -i .docker
+     - run: docker load -i .docker/
     # build image
     # - run: |         
      #    docker info
