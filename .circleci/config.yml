@@ -9,22 +9,18 @@ jobs:
      - run: |         
          docker info
          docker build src/WebUI/ -t aspnetapp -f src/WebUI/prod.Dockerfile
-         mkdir workspace
-         mkdir workspace/.docker
-         docker save -o workspace/.docker/image.tar aspnetapp
+         mkdir .docker
+         docker save -o .docker/image.tar aspnetapp
      - persist-to-workspace:
-        root: workspace
-        paths: .docker/
+        root: .
+        paths: .docker/image.tar
  deploy:
    machine: true
    steps:
      - run: mkdir .docker
      - attach_workspace:
         at: .docker
-     - run: |
-        ls 
-        ls .docker
-    # - run: docker load -i .docker/image.tar
+    - run: docker load -i .docker/image.tar
     # build image
     # - run: |         
      #    docker info
