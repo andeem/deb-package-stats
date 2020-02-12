@@ -18,9 +18,10 @@ jobs:
  deploy:
    machine: true
    steps:
+     - run: mkdir .docker
      - attach_workspace:
-        at: .
-     - run: docker load -i /workspace/.docker
+        at: .docker
+     - run: docker load -i .docker
     # build image
     # - run: |         
      #    docker info
