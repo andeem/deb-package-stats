@@ -21,7 +21,7 @@ jobs:
    steps:
      - attach_workspace:
         at: ./
-     - run: ls #docker load -i .docker/image.tar
+     - run: ls -al #docker load -i .docker/image.tar
     # build image
     # - run: |         
      #    docker info
