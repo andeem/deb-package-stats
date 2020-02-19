@@ -4,6 +4,7 @@ WORKDIR /app
 # Copy sln and csproj files, and restore as distinct layers
 COPY *.sln .
 COPY src/WebUI/*.csproj ./src/WebUI/
+COPY src/Application/*.csproj ./src/Application/
 COPY test/WebUI.Test/*.csproj ./test/WebUI.Test/
 RUN dotnet restore
 
@@ -16,7 +17,7 @@ WORKDIR /app/test/WebUI.Test
 CMD ["dotnet", "test", "--logger:trx"]
 
 FROM build AS test
-WORKDIR /app/test/WebUI.Test
+WORKDIR /app
 RUN dotnet test --logger:trx
 
 FROM build as publish
