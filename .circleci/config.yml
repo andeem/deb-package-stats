@@ -49,4 +49,4 @@ workflows:
         branches:
           ignore: /.*/
       requires:
-        - build
+        - hold
